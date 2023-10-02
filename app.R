@@ -90,7 +90,7 @@ data_cards <- list(
   ),
   "Naturalist" = list(
     "detail" = "",
-    "image" = "",
+    "image" = "quine.jpg",
     "caption" = "W. V. O. Quine",
     "prompt" = "",
     "options" = list(),
@@ -98,7 +98,7 @@ data_cards <- list(
   ),
   "platonist" = list(
     "detail" = "",
-    "image" = "",
+    "image" = "godel.jpg",
     "caption" = "Kurt Godel",
     "prompt" = "(A) Are numbers more real than the senses? (B) Can you logically derive numbers?",
     "options" = list(
@@ -110,7 +110,7 @@ data_cards <- list(
   ),
   "Platonist" = list(
     "detail" = "",
-    "image" = "",
+    "image" = "Plato_Aristotle.webp",
     "caption" = "Plato, Aristotle",
     "prompt" = "",
     "options" = list(),
@@ -119,14 +119,14 @@ data_cards <- list(
   "Platonic Logicist" = list(
     "detail" = "",
     "image" = "",
-    "caption" = "Plato, Aristotle",
+    "caption" = "",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
   ),
   "Logicist" = list(
     "detail" = "",
-    "image" = "",
+    "image" = "frege.jpg",
     "caption" = "Gottlob Frege",
     "prompt" = "",
     "options" = list(),
@@ -156,7 +156,7 @@ data_cards <- list(
   ),
   "Diagrammaticist" = list(
     "detail" = "Dr. Shin (below) developed a revolutionary system of diagrammatic reasoning in 1995, therefore overturning sententenialism (the idea that mathematical thought must be linear).",
-    "image" = "",
+    "image" = "shin.jpg",
     "caption" = "Sun Joo Shin",
     "prompt" = "",
     "options" = list(),
@@ -164,7 +164,7 @@ data_cards <- list(
   ),
   "Sententialist" = list(
     "detail" = "",
-    "image" = "",
+    "image" = "hilbert.jpg",
     "caption" = "David Hilbert",
     "prompt" = "",
     "options" = list(),
@@ -184,7 +184,7 @@ data_cards <- list(
   ),
   "Transcendental Idealist" = list(
     "detail" = "",
-    "image" = "",
+    "image" = "kant.jpg",
     "caption" = "Immanuel Kant",
     "prompt" = "",
     "options" = list(),
@@ -192,7 +192,7 @@ data_cards <- list(
   ),
   "Intuitionist" = list(
     "detail" = "",
-    "image" = "",
+    "image" = "brouwer.jpeg",
     "caption" = "L. E. J. Brouwer",
     "prompt" = "",
     "options" = list(),
@@ -208,16 +208,16 @@ data_cards <- list(
   ),
   "Model Structuralist" = list(
     "detail" = "",
-    "image" = "",
-    "caption" = "",
+    "image" = "benacerraf.jpg",
+    "caption" = "Paul Benacerraf",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
   ),
   "Fictionalist" = list(
     "detail" = "",
-    "image" = "",
-    "caption" = "",
+    "image" = "rosen.jpg",
+    "caption" = "Gideon Rosen",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
@@ -312,7 +312,7 @@ server <- function(input, output) {
 
     caption <- NULL
     if (data_card[["caption"]] != "")
-      caption <- HTML(sprintf("<i>%s</i>", data_card[["caption"]]))
+      caption <- HTML(sprintf("<div><i>%s</i></div>", data_card[["caption"]]))
 
     spacing <- NULL
     if (!is.null(prompt_choices) && (!is.null(detail) || !is.null(caption)))

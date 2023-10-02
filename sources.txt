@@ -1,0 +1,22 @@
+start: https://www.wallpaperflare.com/silhouette-of-woman-reading-book-sitting-near-brown-handrail-during-golden-hour-wallpaper-zbkby
+
+brouwer: https://upload.wikimedia.org/wikipedia/en/6/6c/Luitzen_Egbertus_Jan_Brouwer.jpeg
+
+rosen: https://philosophy.princeton.edu/sites/g/files/toruqf2381/files/styles/3x4_750w_1000h/public/people/gideonrosen18_crop.jpg
+
+benacerraf: https://philosophy.princeton.edu/sites/g/files/toruqf2381/files/styles/3x4_750w_1000h/public/people/paul-b-1-red.jpg
+
+plato: https://i0.wp.com/overpopulation-project.com/wp-content/uploads/2023/03/Plato_Aristotle.jpg
+
+frege: https://upload.wikimedia.org/wikipedia/commons/9/99/Young_frege.jpg
+
+hilbert: https://miro.medium.com/v2/resize:fit:640/format:webp/1*pb7BPZXFp5x-HbfIt72FVQ.jpeg
+
+kant: https://cla.umn.edu/sites/cla.umn.edu/files/styles/feature_image/public/unsorted/images/die_gartenlaube.jpg
+
+shin: https://www.uni-log.org/invited2013/Shin.jpg
+
+quine: https://www.kyotoprize.org/wp-content/uploads/2019/07/th_1996_c_quine.jpg
+
+
+
