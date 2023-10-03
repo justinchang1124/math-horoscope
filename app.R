@@ -1,12 +1,3 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
@@ -32,11 +23,19 @@ all_fun_true <- function(X, FUN)
   all(vapply(X, FUN, FALSE))
 }
 
-is_options_obj <- function(x)
+#' whether x is a button_choices object
+#'
+#' @param x [object]
+#' @returns [boolean]
+is_button_choices <- function(x)
 {
-  is.list(x) && is.character(unlist(x))
+  is.list(x) && all_fun_true(x, is_str)
 }
 
+#' whether x is a data_card object
+#'
+#' @param x [object]
+#' @returns [boolean]
 is_data_card <- function(x)
 {
   members <- c(
@@ -51,12 +50,13 @@ is_data_card <- function(x)
   is.list(x) && identical(names(x), members) &&
     is_str(x[["detail"]]) && is_str(x[["image"]]) &&
     is_str(x[["caption"]]) && is_str(x[["prompt"]]) &&
-    is_options_obj(x[["options"]]) && is_str(x[["footnote"]])
+    is_button_choices(x[["options"]]) && is_str(x[["footnote"]])
 }
 
+# all the data for the application
 data_cards <- list(
   "Philosopher" = list(
-    "detail" = "Welcome! Pretend this is a Buzzfeed quiz about mathematical philosophy.",
+    "detail" = "Welcome! This is a Buzzfeed-style quiz about mathematical philosophy.<br>I hope it provides some (oversimplified) food for thought.",
     "image" = "start.jpg",
     "caption" = "Relax and have fun!",
     "prompt" = "Do numbers exist?",
@@ -97,10 +97,10 @@ data_cards <- list(
     "footnote" = ""
   ),
   "platonist" = list(
-    "detail" = "You are a platonist (lowercase 'p'). You treat mathematical objects with as much respect as real-world objects. Your views align with a plurality of modern mathematicians.",
+    "detail" = "You are a platonist (lowercase 'p'). You treat mathematical objects with as much respect as the senses - perhaps you imaging yourself with a 'mind's eye' that lets you see the mathematical world in the same way as you see the real world. Your views align with a plurality of modern mathematicians.",
     "image" = "godel.jpg",
     "caption" = "Kurt Godel (1906 CE - 1978 CE)",
-    "prompt" = "(A) Are numbers more real than the senses? (B) Can you logically derive numbers?",
+    "prompt" = "(A) Are numbers more real than the senses? <br> (B) Can you logically derive numbers?",
     "options" = list(
       "A" = "Platonist",
       "B" = "Logicist",
@@ -125,7 +125,7 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Logicist" = list(
-    "detail" = "You are a logicist. You believe that mathematics can be entirely derived from logical reasoning. Unfortunately, Godel's Incompleteness Theorem prevents this for any system capable of basic arithmetic.",
+    "detail" = "You are a logicist. You believe that mathematics can be entirely derived from logical reasoning and that mathematics is therefore a subset of logic. Unfortunately, Godel's Incompleteness Theorem prevents this for any system capable of basic arithmetic.",
     "image" = "frege.jpg",
     "caption" = "Gottlob Frege (1848-1925)",
     "prompt" = "",
@@ -133,18 +133,18 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Idealist" = list(
-    "detail" = "You are an idealist. Num",
+    "detail" = "You are an idealist. You believe that mathematical objects are created by humans.",
     "image" = "",
     "caption" = "",
     "prompt" = "Where does math happen?",
-    "options" = c(
+    "options" = list(
       "Representation" = "Formalist",
       "Thought" = "Mentalist"
     ),
     "footnote" = "More specifically, what do we call mathematics: the concrete representations we create (textbooks, papers, computers) or the thoughts in our minds?"
   ),
   "Formalist" = list(
-    "detail" = "If you also believe math has no relation to truth, you are a game formalist. After all, the best move in a chess game has no intrinsic truth value.",
+    "detail" = "You are a formalist. You believe that all mathematics can be reduced to well-defined manipulations of representations (symbols). If you also believe math has no relation to truth, you are a game formalist. After all, the best move in a chess game has no intrinsic truth value.",
     "image" = "",
     "caption" = "",
     "prompt" = "Can mathematical thought be nonlinear?",
@@ -152,10 +152,10 @@ data_cards <- list(
       "Yes" = "Diagrammaticist",
       "No" = "Sententialist"
     ),
-    "footnote" = "Nonlinearity implies the existence of mathematical arguments that can be processed in multiple ways."
+    "footnote" = "Nonlinearity implies the existence of mathematical arguments that can be processed in multiple ways, such as visual proofs."
   ),
   "Diagrammaticist" = list(
-    "detail" = "Dr. Shin (below) developed a revolutionary system of diagrammatic reasoning in 1995, therefore overturning sententenialism (the idea that mathematical thought must be linear).",
+    "detail" = "You are a diagrammatist. You accept the existence of rigorous systems of diagrammatic reasoning.",
     "image" = "shin.jpg",
     "caption" = "Sun Joo Shin",
     "prompt" = "",
@@ -163,16 +163,15 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Sententialist" = list(
-    "detail" = "You are a sententialist. To you, pictures and diagrams are aids in understanding, but bring mathematicians no closer to the truth.",
+    "detail" = "You are a sententialist. To you, pictures and diagrams are aids in understanding, but no substitute for the mathematical truth of formal proofs.",
     "image" = "hilbert.jpg",
-    "caption" = "David Hilbert",
+    "caption" = "David Hilbert (1862 CE - 1943 CE)",
     "prompt" = "",
     "options" = list(),
-    "image" = "",
     "footnote" = ""
   ),
   "Mentalist" = list(
-    "detail" = "",
+    "detail" = "You are a mentalist. To you, reality is subjective and the mind is objective: a sharp contrast to the historical belief that reality is objective and the mind is subjective. Therefore, mathematical objects are constructed internally (invented), not observed externally (discovered). As Descartes said, 'I think, therefore I am.' You consider mathematics an individual experience that transcends symbolism; language is merely the means by which you attempt to share that experience with others.",
     "image" = "",
     "caption" = "",
     "prompt" = "Is space a fundamental human intuition?",
@@ -183,38 +182,40 @@ data_cards <- list(
     "footnote" = "By space, we mean the ability to imagine things with relative position. So visual impairment does not exclude spatial intuition."
   ),
   "Transcendental Idealist" = list(
-    "detail" = "",
+    "detail" = "You are a transcendental idealist. You consider time and space to be fundamental human intuitions. You accept the use of constructions in proofs; by instantiating concepts (triangles) as objects (the thing you drew on the page), you can reason about the concept (all triangles). Kant's thoughts strongly parallel the paradigms of batch gradient descent in neural networks and object-oriented programming.",
     "image" = "kant.jpg",
-    "caption" = "Immanuel Kant",
+    "caption" = "Immanuel Kant (1724 CE - 1804 CE)",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
   ),
   "Intuitionist" = list(
-    "detail" = "",
+    "detail" = "You are an intuitionist. You consider time to be a fundamental human intuition. For all minds, one moment of experience must progress to another moment of experience. Because of these endpoints, Brouwer considered two the most important number. The continuum between these two points gives rise to the real numbers.",
     "image" = "brouwer.jpeg",
-    "caption" = "L. E. J. Brouwer",
+    "caption" = "L. E. J. Brouwer (1881 CE - 1966 CE)",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
   ),
   "Nominalist" = list(
-    "detail" = "",
+    "detail" = "You are a nominalist. You believe that abstract objects do not exist; they are merely labels that exist only in name.",
     "image" = "",
     "caption" = "",
     "prompt" = "So why does math work?",
     "options" = list(
-      "It lets us structure experiences." = "Model Structuralist",
+      "It lets us structure the world." = "Model Structuralist",
       "It's a useful fiction." = "Fictionalist"
     ),
     "footnote" = ""
   ),
   "Model Structuralist" = list(
-    "detail" = "",
+    "detail" = "You are a model structuralist. You believe that mathematics is not about individual objects (like numbers), but about the relationships between them. In other words: how can you use two without one, three, and the rest of the positive integers?",
     "image" = "benacerraf.jpg",
     "caption" = "Paul Benacerraf",
     "prompt" = "",
-    "options" = list(),
+    "options" = list(
+      "Do the relationships between the objects exist?" = "Aristotelian"
+    ),
     "footnote" = ""
   ),
   "Fictionalist" = list(
@@ -235,7 +236,8 @@ data_cards <- list(
   )
 )
 
-all_fun_true(data_cards, is_data_card)
+# verify the data is valid
+stopifnot(all_fun_true(data_cards, is_data_card))
 
 ui <- function(request)
 {
@@ -322,7 +324,7 @@ server <- function(input, output) {
 
     spacing2 <- NULL
     if (!is.null(buttons) && !is.null(image))
-      spacing2 <- HTML("<br><br>")
+      spacing2 <- HTML("<br>")
 
     footnote <- NULL
     if (data_card[["footnote"]] != "")
