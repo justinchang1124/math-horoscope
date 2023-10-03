@@ -64,10 +64,10 @@ data_cards <- list(
       "Yes" = "Realist",
       "No" = "Nominalist"
     ),
-    "footnote" = "By numbers, we refer to positive integers like one or five. Zero, negative numbers, irrational numbers, complex numbers, geometric figures, etc. are for later."
+    "footnote" = "By numbers, we refer to positive integers like one or five. More broadly, we ask whether mathematical objects (zero, negative numbers, irrational numbers, complex numbers, geometric figures, etc.) exist. Where do you draw the line? Does truth exist? Does love exist?"
   ),
   "Realist" = list(
-    "detail" = "You are a realist. Although you've never seen a number (or any other mathematical concept), you know they're out there somewhere.",
+    "detail" = "You are a realist. Although you've never seen a number (or any other abstract concept), you know they're out there somewhere.",
     "image" = "apple.svg",
     "caption" = "I see five apples, two apples, and three apples. You know what I don't see? The abstract concepts of five, two, and three.",
     "prompt" = "Is mathematics discovered or invented?",
@@ -75,7 +75,7 @@ data_cards <- list(
       "Discovered" = "Epistemic Realist",
       "Invented" = "Idealist"
     ),
-    "footnote" = "In other words: do mathematical objects exist outside of time and space? If they do, they cannot be causally influenced by anything we do and must be discovered, not invented. But if mathematical objects are acausal concepts, how do we access them? This is a major epistemological challenge."
+    "footnote" = "In other words: do mathematical objects exist outside of time and space? If they do, they cannot be causally influenced by anything we do and must be discovered, not invented. But if mathematical objects are acausal concepts, how do we access them? This is a major epistemological challenge. On the other hand, if mathematical objects exist within time and space but are still abstract, they must live inside our minds. Therefore, they must be invented."
   ),
   "Epistemic Realist" = list(
     "detail" = "You are an epistemic realist. You believe that one plus one is, has, and always will be two. Therefore, mathematicians are geographers, not inventors.",
@@ -171,7 +171,7 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Mentalist" = list(
-    "detail" = "You are a mentalist. To you, reality is subjective and the mind is objective: a sharp contrast to the historical belief that reality is objective and the mind is subjective. Therefore, mathematical objects are constructed internally (invented), not observed externally (discovered). As Descartes said, 'I think, therefore I am.' You consider mathematics an individual experience that transcends symbolism; language is merely the means by which you attempt to share that experience with others.",
+    "detail" = "You are a mentalist. To you, reality is subjective and the mind is objective. This is known as the Copernican Turn; just as Copernicus dared to say the Earth revolves around the sun, so too do you dare to say that reality revolves around the mind. We can never know the true nature of the world, but we can learn about our own minds. As Descartes said, 'I think, therefore I am.' Therefore, mathematical objects are constructed internally (invented), not observed externally (discovered). You consider mathematics an individual experience that transcends symbolism; language is merely the means by which you attempt to share that experience with others.",
     "image" = "",
     "caption" = "",
     "prompt" = "Is space a fundamental human intuition?",
@@ -198,7 +198,7 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Nominalist" = list(
-    "detail" = "You are a nominalist. You believe that abstract objects do not exist; they are merely labels that exist only in name.",
+    "detail" = "You are a nominalist. You believe that abstract objects do not exist; they are merely nominal labels.",
     "image" = "",
     "caption" = "",
     "prompt" = "So why does math work?",
@@ -209,13 +209,11 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Model Structuralist" = list(
-    "detail" = "You are a model structuralist. You believe that mathematics is not about individual objects (like numbers), but about the relationships between them. In other words: how can you use two without one, three, and the rest of the positive integers?",
+    "detail" = "You are a model structuralist. You believe that mathematics is not about individual objects (like numbers), but about the relationships between them. In other words: how can you use two without one, three, and the rest of the positive integers? On the other hand, how can we accept the existence of abstract structures without accepting the existence of their abstract indices?",
     "image" = "benacerraf.jpg",
     "caption" = "Paul Benacerraf",
     "prompt" = "",
-    "options" = list(
-      "Do the relationships between the objects exist?" = "Aristotelian"
-    ),
+    "options" = list(),
     "footnote" = ""
   ),
   "Fictionalist" = list(
@@ -227,9 +225,9 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Bedrocker" = list(
-    "detail" = "You speak in careful and concrete terms. You preface your thoughts about fiction with 'If the events of this work had occurred in real life ...'",
+    "detail" = "You speak in careful and concrete terms. You preface book and movie reviews with 'If the events of this work had occurred in real life ...'",
     "image" = "bedrock.png",
-    "caption" = "Your thoughts are as finite and immovable as Minecraft bedrock.",
+    "caption" = "Your thoughts are as finite and impervious as Minecraft bedrock.",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
@@ -337,7 +335,7 @@ server <- function(input, output) {
       spacing2,
       buttons,
       footnote,
-      title = HTML(sprintf("<div style='font-size: 36px'>Perspective: <b>%s</b></div>", current)),
+      title = add_font_size(sprintf("Perspective: <b>%s</b>", current), 36),
       collapsible = FALSE,
       width = "100%"
     )
