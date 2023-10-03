@@ -56,50 +56,50 @@ is_data_card <- function(x)
 
 data_cards <- list(
   "Philosopher" = list(
-    "detail" = "Welcome to the equivalent of a Buzzfeed quiz about mathematical philosophy - answer as many or as few times as you like.",
+    "detail" = "Welcome! Pretend this is a Buzzfeed quiz about mathematical philosophy.",
     "image" = "start.jpg",
-    "caption" = "",
+    "caption" = "Relax and have fun!",
     "prompt" = "Do numbers exist?",
     "options" = list(
       "Yes" = "Realist",
       "No" = "Nominalist"
     ),
-    "footnote" = "By numbers, we refer to positive integers: the prime example of mathematical objects. Zero, negative numbers, irrational numbers, complex numbers, geometric figures, etc. are all debatable as well, but that is outside the scope of this horoscope."
+    "footnote" = "By numbers, we refer to positive integers like one or five. Zero, negative numbers, irrational numbers, complex numbers, geometric figures, etc. are for later."
   ),
   "Realist" = list(
-    "detail" = "",
-    "image" = "",
-    "caption" = "",
-    "prompt" = "Were numbers discovered or invented?",
+    "detail" = "You are a realist. Although you've never seen a number (or any other mathematical concept), you know they're out there somewhere.",
+    "image" = "apple.svg",
+    "caption" = "I see five apples, two apples, and three apples. You know what I don't see? The abstract concepts of five, two, and three.",
+    "prompt" = "Is mathematics discovered or invented?",
     "options" = list(
       "Discovered" = "Epistemic Realist",
       "Invented" = "Idealist"
     ),
-    "footnote" = "More formally, we ask whether mathematical objects exist outside of time and space. If they do, they cannot be causally influenced by anything we do and therefore cannot be invented. This is a major epistemological challenge; how do we access acausal concepts?"
+    "footnote" = "In other words: do mathematical objects exist outside of time and space? If they do, they cannot be causally influenced by anything we do and must be discovered, not invented. But if mathematical objects are acausal concepts, how do we access them? This is a major epistemological challenge."
   ),
   "Epistemic Realist" = list(
-    "detail" = "",
-    "image" = "",
-    "caption" = "",
+    "detail" = "You are an epistemic realist. You believe that one plus one is, has, and always will be two. Therefore, mathematicians are geographers, not inventors.",
+    "image" = "patent.webp",
+    "caption" = "The US Patent Office agrees, preventing the patent of pure mathematics. This also prevented software programs from being patented until 1968.",
     "prompt" = "How do we discover math?",
     "options" = list(
       "Inductively (Science)" = "Naturalist",
       "Deductively (Mind)" = "platonist"
     ),
-    "footnote" = "The epistemological Integration Challenge asks how we can access acausal objects in order to reason about them. We might also ask how we can access concrete objects; the answer requires a better understanding of consciousness."
+    "footnote" = "The epistemological Integration Challenge asks how we can access acausal objects in order to reason about them. We might also ask how we can access concrete objects - a question that's been around for as long as the idea of consciousness has."
   ),
   "Naturalist" = list(
-    "detail" = "",
+    "detail" = "You are a naturalist. To you, mathematics exists to serve empiricism: the hard sciences first and foremost. A better system can always dethrone mathematics in the same way that mathematics dethroned rational metaphysics: by being a better tool for physicists, chemists, biologists, and so forth.",
     "image" = "quine.jpg",
-    "caption" = "W. V. O. Quine",
+    "caption" = "W. V. O. Quine (1908 CE - 2000 CE)",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
   ),
   "platonist" = list(
-    "detail" = "",
+    "detail" = "You are a platonist (lowercase 'p'). You treat mathematical objects with as much respect as real-world objects. Your views align with a plurality of modern mathematicians.",
     "image" = "godel.jpg",
-    "caption" = "Kurt Godel",
+    "caption" = "Kurt Godel (1906 CE - 1978 CE)",
     "prompt" = "(A) Are numbers more real than the senses? (B) Can you logically derive numbers?",
     "options" = list(
       "A" = "Platonist",
@@ -109,15 +109,15 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Platonist" = list(
-    "detail" = "",
+    "detail" = "You are a Platonist (uppercase 'P'). You view mathematical objects as pure, abstract truths: more reliable than the fallible senses.",
     "image" = "Plato_Aristotle.webp",
-    "caption" = "Plato, Aristotle",
+    "caption" = "Plato (428/427 BCE - 348/347 BCE), Aristotle (384 BCE - 322 BCE)",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
   ),
   "Platonic Logicist" = list(
-    "detail" = "",
+    "detail" = "You are a Platonist (uppercase 'P') and a logicist. You view mathematical objects as pure and logical: more trustworthy than the fallible senses. Additionally, you believe that mathematics can be entirely derived from logical reasoning. That's an ambitious claim!",
     "image" = "",
     "caption" = "",
     "prompt" = "",
@@ -125,15 +125,15 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Logicist" = list(
-    "detail" = "",
+    "detail" = "You are a logicist. You believe that mathematics can be entirely derived from logical reasoning. Unfortunately, Godel's Incompleteness Theorem prevents this for any system capable of basic arithmetic.",
     "image" = "frege.jpg",
-    "caption" = "Gottlob Frege",
+    "caption" = "Gottlob Frege (1848-1925)",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
   ),
   "Idealist" = list(
-    "detail" = "",
+    "detail" = "You are an idealist. Num",
     "image" = "",
     "caption" = "",
     "prompt" = "Where does math happen?",
@@ -163,7 +163,7 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Sententialist" = list(
-    "detail" = "",
+    "detail" = "You are a sententialist. To you, pictures and diagrams are aids in understanding, but bring mathematicians no closer to the truth.",
     "image" = "hilbert.jpg",
     "caption" = "David Hilbert",
     "prompt" = "",
@@ -202,8 +202,11 @@ data_cards <- list(
     "detail" = "",
     "image" = "",
     "caption" = "",
-    "prompt" = "",
-    "options" = list(),
+    "prompt" = "So why does math work?",
+    "options" = list(
+      "It lets us structure experiences." = "Model Structuralist",
+      "It's a useful fiction." = "Fictionalist"
+    ),
     "footnote" = ""
   ),
   "Model Structuralist" = list(
@@ -215,17 +218,17 @@ data_cards <- list(
     "footnote" = ""
   ),
   "Fictionalist" = list(
-    "detail" = "",
+    "detail" = "You view mathematicians as novelists, although you appreciate the rarity of plot holes in their stories.",
     "image" = "rosen.jpg",
     "caption" = "Gideon Rosen",
-    "prompt" = "",
-    "options" = list(),
+    "prompt" = "Would treating math as fiction improve society?",
+    "options" = list("Yes" = "Bedrocker"),
     "footnote" = ""
   ),
   "Bedrocker" = list(
-    "detail" = "",
-    "image" = "",
-    "caption" = "",
+    "detail" = "You speak in careful and concrete terms. You preface your thoughts about fiction with 'If the events of this work had occurred in real life ...'",
+    "image" = "bedrock.png",
+    "caption" = "Your thoughts are as finite and immovable as Minecraft bedrock.",
     "prompt" = "",
     "options" = list(),
     "footnote" = ""
@@ -234,7 +237,6 @@ data_cards <- list(
 
 all_fun_true(data_cards, is_data_card)
 
-# Define UI for application that draws a histogram
 ui <- function(request)
 {
   dashboardPage(
@@ -252,80 +254,88 @@ ui <- function(request)
   )
 }
 
-# Define server logic required to draw a histogram
+add_font_size <- function(msg, font_size)
+{
+  HTML(sprintf("<div style='font-size: %spx'>%s</div>", font_size, msg))
+}
+
 server <- function(input, output) {
-  path <- reactiveVal("Philosopher")
+  visits <- reactiveVal("Philosopher")
 
   observeEvent(input$undo, {
-    n <- length(path())
+    visited <- visits()
+    n <- length(visited)
     if (n > 1)
-      path(path()[-length(path())])
+      visits(visited[-n])
   })
 
   observeEvent(input$reset, {
-    path("Philosopher")
+    visits("Philosopher")
   })
 
-  observeEvent(input$user_picker, {
-    current <- tail(path(), 1)
+  observeEvent(input$buttons, {
+    visited <- visits()
+    current <- tail(visited, 1)
     data_card <- data_cards[[current]]
     card_options <- data_card[["options"]]
-    path(c(path(), card_options[[input$user_picker]]))
+    visits(c(visited, card_options[[input$buttons]]))
   })
 
   output$card <- renderUI({
-    current <- tail(path(), 1)
+    visited <- visits()
+    current <- tail(visited, 1)
     data_card <- data_cards[[current]]
-    card_options <- data_card[["options"]]
+
+    detail <- NULL
+    if (data_card[["detail"]] != "")
+      detail <- add_font_size(sprintf("%s<br><br>", data_card[["detail"]]), 18)
 
     image <- NULL
     image_path <- data_card[["image"]]
     if (image_path != "")
       image <- img(src = image_path, align = "center", width = "50%")
 
-    prompt_choices <- NULL
-    if (length(card_options) > 0)
+    caption <- NULL
+    if (data_card[["caption"]] != "")
+      caption <- add_font_size(tags$i(data_card[["caption"]]), 18)
+
+    # BUTTONS
+    buttons <- NULL
+    button_choices <- names(data_card[["options"]])
+    if (length(button_choices) > 0)
     {
-      prompt_choices <- checkboxGroupButtons(
-        inputId = "user_picker",
-        label = data_card[["prompt"]],
-        choices = names(card_options),
+      buttons <- checkboxGroupButtons(
+        inputId = "buttons",
+        label = add_font_size(data_card[["prompt"]], 18),
+        choices = button_choices,
         status = "primary",
         individual = TRUE,
         justified = TRUE
       )
 
-      prompt_choices$children[[3]]$children[[1]] <- HTML(gsub(
+      buttons$children[[3]]$children[[1]] <- HTML(gsub(
         'role="group"',
         'role="group" style="padding: 5px"',
-        prompt_choices$children[[3]]$children[[1]]
+        buttons$children[[3]]$children[[1]]
       ))
     }
 
+    spacing2 <- NULL
+    if (!is.null(buttons) && !is.null(image))
+      spacing2 <- HTML("<br><br>")
+
     footnote <- NULL
     if (data_card[["footnote"]] != "")
-      footnote <- HTML(sprintf("<i>%s</i>", data_card[["footnote"]]))
-
-    detail <- NULL
-    if (data_card[["detail"]] != "")
-      detail <- HTML(sprintf("<div>%s</div>", data_card[["detail"]]))
-
-    caption <- NULL
-    if (data_card[["caption"]] != "")
-      caption <- HTML(sprintf("<div><i>%s</i></div>", data_card[["caption"]]))
-
-    spacing <- NULL
-    if (!is.null(prompt_choices) && (!is.null(detail) || !is.null(caption)))
-      spacing <- HTML("<br><br>")
+      footnote <- add_font_size(tags$i(data_card[["footnote"]]), 18)
 
     box(
       detail,
       image,
       caption,
-      spacing,
-      prompt_choices,
+      spacing2,
+      buttons,
       footnote,
-      title = HTML(sprintf("<b>%s</b>", current)),
+      title = HTML(sprintf("<div style='font-size: 36px'>Perspective: <b>%s</b></div>", current)),
       collapsible = FALSE,
       width = "100%"
     )

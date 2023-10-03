@@ -18,5 +18,9 @@ shin: https://www.uni-log.org/invited2013/Shin.jpg
 
 quine: https://www.kyotoprize.org/wp-content/uploads/2019/07/th_1996_c_quine.jpg
 
+bedrock: https://lh4.googleusercontent.com/JXqavfdZkn9FfwT8DMg6iuWTFiUrvwAVyMiLvRyw6RH0Win3LC9ztBVosrHxX-wUuRzCnVxEnZqwJLglhHy0kcQbh1gNva6k1GsDAfDzIR7ufYmFj4rDxFhIqrADjxY0KkwgDuKZSKRSDe8od9cb1F1S--ViJi5T7pMldmADfg0BLZdmrzAzEwlya309Fw
 
+apples: https://upload.wikimedia.org/wikipedia/commons/a/ab/Resta.svg
+
+patent: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.denverpost.com%2F2014%2F06%2F27%2Fbennet-denvers-new-u-s-patent-office-is-a-tribute-to-colorado%2F&psig=AOvVaw0d0F62K-oDkQBdjhh8fxYT&ust=1696372562828000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPjDu7K22IEDFQAAAAAdAAAAABAI
 
