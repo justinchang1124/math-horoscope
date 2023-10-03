@@ -203,13 +203,13 @@ data_cards <- list(
     "caption" = "",
     "prompt" = "So why does math work?",
     "options" = list(
-      "It lets us structure the world." = "Model Structuralist",
+      "It lets us structure the world." = "Structuralist",
       "It's a useful fiction." = "Fictionalist"
     ),
     "footnote" = ""
   ),
-  "Model Structuralist" = list(
-    "detail" = "You are a model structuralist. You believe that mathematics is not about individual objects (like numbers), but about the relationships between them. In other words: how can you use two without one, three, and the rest of the positive integers? On the other hand, how can we accept the existence of abstract structures without accepting the existence of their abstract indices?",
+  "Structuralist" = list(
+    "detail" = "You are a structuralist. You believe that mathematics is not about individual objects (like numbers), but about the relationships between them. In other words: how can you use two without one, three, and the rest of the positive integers? On the other hand, how can we accept the existence of abstract structures without accepting the existence of their abstract indices?",
     "image" = "benacerraf.jpg",
     "caption" = "Paul Benacerraf",
     "prompt" = "",
